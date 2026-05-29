@@ -46,8 +46,8 @@ async def main() -> None:
     dp.include_router(twitter.router)
     dp.include_router(help.router)
 
+
     try:
-        await bot.set_my_name("YuklaBot")
         await bot.set_my_commands(
             [
                 BotCommand(command="start", description="Start YuklaBot"),
