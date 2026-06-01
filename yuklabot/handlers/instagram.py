@@ -12,7 +12,6 @@ from yuklabot.utils.downloader import download_video, get_video_info
 from yuklabot.utils.helpers import extract_url, format_duration, truncate_title
 from yuklabot.utils.url_cache import url_cache
 
-
 router = Router()
 
 
@@ -26,7 +25,10 @@ async def instagram_url(message: Message, db_user) -> None:
     status = await message.answer(get_text(db_user.language, "fetching_info"))
     info = await get_video_info(url)
     if not info["success"]:
-        await status.edit_text(get_text(db_user.language, "download_error"))
+        error_msg = info.get("error", "")
+        await status.edit_text(
+            f"❌ {error_msg}" if error_msg else get_text(db_user.language, "download_error")
+        )
         return
 
     text = (
@@ -44,7 +46,12 @@ async def instagram_download(callback: CallbackQuery, db_user) -> None:
 
 
 async def _handle_download(callback: CallbackQuery, db_user) -> None:
-    _, platform, quality, url_hash = callback.data.split(":", 3)
+    parts = callback.data.split(":", 3)
+    if len(parts) != 4:
+        await callback.message.edit_text(get_text(db_user.language, "invalid_link"))
+        return
+
+    _, platform, quality, url_hash = parts
     url = url_cache.get(url_hash)
     if not url:
         await callback.message.edit_text(get_text(db_user.language, "invalid_link"))
@@ -52,20 +59,30 @@ async def _handle_download(callback: CallbackQuery, db_user) -> None:
 
     await callback.message.edit_text(get_text(db_user.language, "downloading"))
     result = await download_video(url, quality)
+
     if not result["success"]:
-        await callback.message.edit_text(get_text(db_user.language, "download_error"))
+        error_msg = result.get("error", "")
+        await callback.message.edit_text(
+            f"❌ {error_msg}" if error_msg else get_text(db_user.language, "download_error")
+        )
         return
 
     if result["file_size"] > config.MAX_FILE_SIZE:
         asyncio.create_task(delete_file(result["file_path"]))
-        await callback.message.edit_text(get_text(db_user.language, "file_too_large", size=result["file_size"]))
+        await callback.message.edit_text(
+            get_text(db_user.language, "file_too_large", size=result["file_size"])
+        )
         return
 
-    file_type = "photo" if quality == "image" else "video"
+    # file_type: downloader tomonidan aniqlanadi (photo yoki video)
+    file_type = result.get("file_type", "photo" if quality == "image" else "video")
+
     await _send_file(callback.message, result["file_path"], file_type, result["title"])
     await add_download(db_user.id, platform, url, result["title"], file_type, quality, result["file_size"])
     asyncio.create_task(delete_file(result["file_path"]))
-    await callback.message.edit_text(get_text(db_user.language, "download_success", size=result["file_size"]))
+    await callback.message.edit_text(
+        get_text(db_user.language, "download_success", size=result["file_size"])
+    )
 
 
 async def _send_file(message: Message, file_path: str, file_type: str, title: str) -> None:
