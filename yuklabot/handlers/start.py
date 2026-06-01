@@ -4,10 +4,10 @@ from aiogram import F, Router
 from aiogram.filters import CommandStart
 from aiogram.types import CallbackQuery, Message
 
-from database.db import get_download_by_id, get_user_downloads, update_user_language
-from keyboards.inline import history_keyboard, language_keyboard
-from keyboards.reply import main_menu
-from locales import get_text
+from yuklabot.database.db import get_download_by_id, get_user_downloads, update_user_language
+from yuklabot.keyboards.inline import history_keyboard, language_keyboard
+from yuklabot.keyboards.reply import main_menu
+from yuklabot.locales import get_text
 
 
 router = Router()

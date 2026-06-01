@@ -1,6 +1,6 @@
 MESSAGES = {
     "welcome": "👋 Salom, {name}!\n\n🎯 <b>YuklaBot</b> ga xush kelibsiz!\n\nMen quyidagi platformalardan video va audio yuklab olaman:\n\n▶️ YouTube\n📸 Instagram\n🎵 TikTok\n🐦 Twitter/X\n\n📎 Link yuboring — men yuklab beraman!",
-    "help": "📖 <b>Yordam</b>\n\nBot ishlatish juda oddiy:\n1. Video linkini yuboring\n2. Sifat tanlang\n3. Yuklab oling!\n\n<b>Qo'llab-quvvatlanadigan platformalar:</b>\n▶️ YouTube — video va MP3\n📸 Instagram — Reels, post, story\n🎵 TikTok — watermark'siz\n🐦 Twitter/X — video\n\n<b>Muammo bo'lsa:</b> @admin ga murojaat qiling",
+    "help": "📖 <b>Yordam</b>\n\nBot ishlatish juda oddiy:\n1. Video linkini yuboring\n2. Sifat tanlang\n3. Yuklab oling!\n\n<b>Qo'llab-quvvatlanadigan platformalar:</b>\n▶️ YouTube — video va MP3\n📸 Instagram — Reels, post, story\n🎵 TikTok — watermark'siz\n🐦 Twitter/X — video\n\n<b>Muammo bo'lsa:</b> @Muhammadjon_Arabov ga murojaat qiling",
     "send_link": "📎 Link yuboring:",
     "fetching_info": "⏳ Ma'lumot olinmoqda...",
     "downloading": "⏳ Yuklab olinmoqda...",

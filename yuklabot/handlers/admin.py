@@ -2,8 +2,8 @@ from aiogram import F, Router
 from aiogram.filters import Command, CommandObject
 from aiogram.types import Message
 
-from config import config
-from database.db import ban_user, get_all_users, get_stats, unban_user
+from yuklabot.config import config
+from yuklabot.database.db import ban_user, get_all_users, get_stats, unban_user
 
 
 router = Router()

@@ -2,7 +2,7 @@ from aiogram import F, Router
 from aiogram.filters import Command
 from aiogram.types import Message
 
-from locales import get_text
+from yuklabot.locales import get_text
 
 
 router = Router()

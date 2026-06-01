@@ -1,6 +1,6 @@
 MESSAGES = {
     "welcome": "👋 Hello, {name}!\n\n🎯 Welcome to <b>YuklaBot</b>!\n\nI can download video and audio from:\n\n▶️ YouTube\n📸 Instagram\n🎵 TikTok\n🐦 Twitter/X\n\n📎 Send a link and I will download it for you!",
-    "help": "📖 <b>Help</b>\n\nUsing the bot is simple:\n1. Send a video link\n2. Choose quality\n3. Download!\n\n<b>Supported platforms:</b>\n▶️ YouTube — video and MP3\n📸 Instagram — Reels, posts, stories\n🎵 TikTok — without watermark when available\n🐦 Twitter/X — video\n\n<b>If you have a problem:</b> contact @admin",
+    "help": "📖 <b>Help</b>\n\nUsing the bot is simple:\n1. Send a video link\n2. Choose quality\n3. Download!\n\n<b>Supported platforms:</b>\n▶️ YouTube — video and MP3\n📸 Instagram — Reels, posts, stories\n🎵 TikTok — without watermark when available\n🐦 Twitter/X — video\n\n<b>If you have a problem:</b> contact @Muhammadjon_Arabov",
     "send_link": "📎 Send a link:",
     "fetching_info": "⏳ Getting info...",
     "downloading": "⏳ Downloading...",

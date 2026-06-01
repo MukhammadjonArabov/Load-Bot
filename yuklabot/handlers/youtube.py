@@ -4,14 +4,14 @@ from aiogram import F, Router
 from aiogram.filters import Command
 from aiogram.types import CallbackQuery, FSInputFile, Message
 
-from config import config
-from database.db import add_download
-from keyboards.inline import quality_keyboard
-from locales import get_text
-from utils.cleaner import delete_file
-from utils.downloader import download_video, get_video_info
-from utils.helpers import extract_url, format_duration, truncate_title
-from utils.url_cache import url_cache
+from yuklabot.config import config
+from yuklabot.database.db import add_download
+from yuklabot.keyboards.inline import quality_keyboard
+from yuklabot.locales import get_text
+from yuklabot.utils.cleaner import delete_file
+from yuklabot.utils.downloader import download_video, get_video_info
+from yuklabot.utils.helpers import extract_url, format_duration, truncate_title
+from yuklabot.utils.url_cache import url_cache
 
 
 router = Router()
